@@ -1,0 +1,356 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"None",
+				"None	instance"
+			],
+			[
+				"guards",
+				"guardsToAddIncremental"
+			],
+			[
+				"pa",
+				"pattern"
+			],
+			[
+				"_steps",
+				"_stepsToMax"
+			],
+			[
+				"_stepsTo",
+				"_stepsToForced"
+			],
+			[
+				"stepsTo",
+				"stepsToMax2"
+			],
+			[
+				"get",
+				"get_object_or_404"
+			],
+			[
+				"remove",
+				"removeRed"
+			],
+			[
+				"negate",
+				"negateImage"
+			],
+			[
+				"cell",
+				"cellAppMgr"
+			],
+			[
+				"secon",
+				"secondaryDB"
+			],
+			[
+				"sh",
+				"shardName"
+			],
+			[
+				"Ch",
+				"CharField"
+			],
+			[
+				"Date",
+				"DateTimeField"
+			],
+			[
+				"Mo",
+				"models"
+			],
+			[
+				"paulc",
+				"paulc"
+			],
+			[
+				"backgroun",
+				"background-repeat"
+			],
+			[
+				"background",
+				"background-size"
+			],
+			[
+				"background-",
+				"background-image"
+			],
+			[
+				"current",
+				"current_path"
+			],
+			[
+				"content",
+				"content-cell"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 81.0,
+		"last_filter": "install package",
+		"selected_items":
+		[
+			[
+				"install package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"install package",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/paulc/workspace/synergy"
+	],
+	"file_history":
+	[
+		"/C/Users/paulc/workspace/synergy/__init.py__",
+		"/C/Users/paulc/workspace/synergy/synergy.py",
+		"/C/Users/paulc/workspace/synergy/synergy.sublime-project",
+		"/C/Users/paulc/workspace/synergy/affects.py",
+		"/C/Users/paulc/workspace/synergy/abilities.py",
+		"/P/perforce/wot/branches/merges/15.2_WoT_9_9_catchup/testing/run_python",
+		"/C/Users/paulc/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/P/.bwmachined.conf",
+		"/P/perforce/bw/release/15/2/game/tools/bigworld/server/stress_test.py",
+		"/P/perforce/bw/release/15/2/game/tools/bigworld/server/layouts/bw_c7_b6_ost.xml",
+		"/P/perforce/bw/release/15/2/game/tools/bigworld/server/runPerformanceTest.py",
+		"/P/bw/moonshine/res/server/bw.xml",
+		"/P/perforce/wgs/wgs_dev_sydney/programming/javelin/wgs.conf",
+		"/P/perforce/wgs/wgs_dev_sydney/game/res/bigworld/server/development_defaults.xml",
+		"/C/PYTHON34/lib/logging/__init__.py",
+		"/P/bin/stress_test_copy",
+		"/P/perforce/bw/release/15/2/game/res/bigworld/server/development_defaults.xml",
+		"/P/perforce/bw/release/15/2/game/res/fantasydemo/server/bw.xml",
+		"/P/perforce/bw/release/15/2/game/res/bigworld/server/production_defaults.xml",
+		"/P/log/server/paulc/bw15.2-stress_test-06-06-15/context.log",
+		"/P/perforce/bw/release/15/2/game/tools/bigworld/server/bot_op.py",
+		"/P/bin/android_build.sh",
+		"/P/perforce/bw/release/15/2/game/tools/bigworld/server/layouts/bw_c7_b4_stress.xml",
+		"/P/perforce/wgs/wgs_main/programming/javelin/wgs.conf",
+		"/P/bin/logread.py",
+		"/C/Users/paulc/AppData/Roaming/Sublime Text 3/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/paulc/Documents/Workspace/tsw_combat.py",
+		"/P/perforce/bw/release/15/2/testing/helpers/cluster.py",
+		"/C/Users/paulc/Downloads/ws_network_test.sh",
+		"/P/perforce/bw/release/15/2/testing/tests/control_cluster/runscript.py",
+		"/C/Users/paulc/Downloads/combat_script.py",
+		"/C/Users/paulc/Documents/GitHub/tswcalc/src/javascript/data/tswcalc-data-nyraid.js",
+		"/C/Users/paulc/Documents/GitHub/tswcalc/src/javascript/tswcalc.js",
+		"/C/Users/paulc/Documents/GitHub/tswcalc/src/javascript/tswcalc-util.js",
+		"/C/Users/paulc/Documents/GitHub/tswcalc/src/javascript/tswcalc-summary.js",
+		"/C/Users/paulc/Documents/GitHub/tswcalc/src/javascript/tswcalc-slots.js",
+		"/C/Users/paulc/Documents/GitHub/tswcalc/src/javascript/tswcalc-selects.js",
+		"/C/Users/paulc/Documents/GitHub/tswcalc/src/javascript/tswcalc-miscslot.js",
+		"/C/Users/paulc/Documents/GitHub/tswcalc/src/javascript/tswcalc-import.js",
+		"/C/Users/paulc/Documents/GitHub/tswcalc/src/javascript/tswcalc-export.js",
+		"/C/Users/paulc/Documents/GitHub/tswcalc/src/javascript/tswcalc-checkbox.js",
+		"/C/Users/paulc/Documents/GitHub/tswcalc/src/javascript/tswcalc-buttons.js",
+		"/C/Users/paulc/Documents/GitHub/tswcalc/src/javascript/tswcalc-buttonbar.js",
+		"/C/Users/paulc/Google Drive/CPT120 - Intro to Programming/Assignment 1/assignment1.py",
+		"/P/tmp/codenamev/mediaplayer/models.py",
+		"/P/tmp/codenamev/mediaplayer/views.py",
+		"/P/tmp/codenamev/mediaplayer/templates/mediaplayer/player.html",
+		"/P/bw/sunshine/res/server/bw.xml",
+		"/P/tmp/codenamev/mediaplayer/urls.py",
+		"/P/tmp/codenamev/codenamev/urls.py",
+		"/P/tmp/codenamev/codenamev/settings.py",
+		"/P/tmp/codenamev/mediaplayer/admin.py",
+		"/C/Users/paulc/Google Drive/CPT120 - Intro to Programming/Tutorial Answers/week4answers.jy",
+		"/P/perforce/wot/branches/ironclad_c7/game/tankfield/res/scripts_config.xml",
+		"/P/perforce/bw/branches/spacedata_improvements/testing/tests/spaces/test_space_data.py",
+		"/P/perforce/bw/branches/spacedata_improvements/testing/tests/spaces/test_space_artificial_min_load.py",
+		"/P/perforce/bw/release/15/1/game/res/fantasydemo/server/bw.xml",
+		"/P/tmp/codenamev/mediaplayer/static/mediaplayer/css/jplayer.blue.monday.css",
+		"/P/tmp/codenamev/mediaplayer/templates/mediaplayer/index.html",
+		"/P/perforce/bw/current/game/bin/tools/misc/copy_tool/xml_config_files/linux64_2_current_centos7_continuous_memtracker.xml",
+		"/C/Users/paulc/Downloads/bw_username.xml",
+		"/C/Users/paulc/Desktop/playtest_260215/delivery_candidate/main_14.4/wows/game/res/scripts_config.xml",
+		"/C/Users/paulc/Documents/delivery_candidate/main_14.4/wows/game/res/scripts_config.xml",
+		"/P/perforce/bw/release/15/1/game/res/SunshineMinimalDemo/server/bw.xml",
+		"/C/Users/paulc/ssh/bw_key",
+		"/P/tmp/codenamev/codenamev/views.py",
+		"/P/perforce/bw/release/15/1/game/res/fantasydemo/server/config/xmpp.xml",
+		"/C/P4/bw/release/15/1/server/game/bin/tools/misc/copy_tool/gui_copy_tool.py",
+		"/P/tmp/codenamev/templates/admin/base_site.html",
+		"/P/perforce/bw/release/15/1/game/res/fantasydemo/spaces/highlands/space.settings",
+		"/P/perforce/bw/release/15/1/game/res/fantasydemo/scripts_config.xml",
+		"/P/perforce/bw/current/game/res/fantasydemo/server/bw.xml",
+		"/P/downloads/ws_network_test.sh",
+		"/P/downloads/tc_script.sh",
+		"/P/perforce/wows/merge/14.4/wows/game/res/server/bw.xml",
+		"/P/perforce/wows/merge/14.4/wows/game/res/scripts_config.xml",
+		"/P/bw/sunshine/res/server/bw_paulc.xml",
+		"/P/perforce/bw/current/game/res/SunshineMinimalDemo/server/bw.xml",
+		"/C/Users/paulc/workspace/cooper.paul.ws/README.md",
+		"/C/Users/paulc/workspace/Paul.Cooper/css/iscroll/iscroll.css",
+		"/C/Users/paulc/workspace/paul.cooper/css/slides.css",
+		"/C/Users/paulc/workspace/Paul.Cooper/index.html",
+		"/P/workspace/GenomicRangeQuery.py",
+		"/P/workspace/codility_test_3.py",
+		"/P/perforce/bw/current/game/res/web_platform_demo/server/bw.xml",
+		"/P/workspace/CountFactors.py",
+		"/P/workspace/ChocolateByNumbers.py",
+		"/P/workspace/TapeEquilibrium.py",
+		"/C/Users/paulc/workspace/iscroll/demos/horizontal/index.html",
+		"/C/P4/wowp/bw_merge/14.4/game/hammer/res/scripts/entity_defs/SimpleTeamObject.def",
+		"/C/Users/paulc/workspace/Paul.Cooper/js/plugins.js",
+		"/C/P4/trilogy/wws/releases/14.4_DC/wows/game/res/scripts_config.xml",
+		"/C/P4/trilogy/wws/releases/14.4_DC/wows/game/res/locale_config.xml",
+		"/C/P4/bw/branches/release/2/current/game/res/SunshineMinimalDemo/Objects/npcWithAI.dsobject",
+		"/P/perforce/wows/merge/2.9/wows/game/res/server/bw.xml",
+		"/P/.irssi/config"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"img",
+			"<div id=\"scroller\">\n                <ul>\n                    <li>Cell 1</li>\n                    <li>Cell 2</li>\n                    <li>Cell 3</li>\n                    <li>Cell 4</li>\n                    \n                </ul>\n            </div>\n        </div>"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "synergy.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 278.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
