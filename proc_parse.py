@@ -14,10 +14,22 @@ class PROCS:
 def test_compare_elite_passives(this, that):
     ## Set All variables TODO make external variables
 
+    # Calculate avg damage per hit
+    builder = 214
+    consumer1 = 757
+    consumer2 = 1511
+    consumer_avg = (consumer1 + consumer2) / 2
+    combat_time = 14
+
+    consumers = combat_time / 7
+    builders = combat_time - consumers
+
+    base_damage = (builders * builder) + (consumers * consumer_avg)
+
     # test at different crit %
     crit_chance = 20
     # assume 1000dps (test scaling DPS later)
-    dps = 1000
+    dps = base_damage / combat_time
     # laceration signet
     have_laceration = True
     # have THUNDERSTRUCK
@@ -25,11 +37,11 @@ def test_compare_elite_passives(this, that):
     # have rapid getaway
     using_rapidgetaway = that
     # have one in the chamber
-    using_oneinthechamber = False
+    using_oneinthechamber = True
 
 
-    # combat in 10 seconds (approx single round)
-    base_dmg = 10 * dps
+    # combat in 14 seconds (approx single round)
+    base_dmg = base_damage
     base_crit = crit_chance  # percent
     if using_rapidgetaway:
         base_crit += 10
@@ -39,14 +51,19 @@ def test_compare_elite_passives(this, that):
     if have_laceration:
         base_crit_dmg += .24
 
-    # assume no randomness over 10 hits
+    # need to calculate avg crit power
+    # this is a factor of laceration downtime
+    # as a percentage of combat time
+    # subtracted from max crit power
+
+    # assume no randomness over 14 hits
     dmg_per_hit = dps
 
-    crits_per_round = base_crit / 10  # (15/100)*10
-    crit_hit_dmg = dmg_per_hit * (1 + base_crit_dmg)
+    crits_per_round = combat_time * (base_crit/100.0)  # where combat time is num hits
+    crit_hit_dmg = dmg_per_hit * base_crit_dmg
     # builder dmg needs to be seperated from consumer (crit % will differ too...)
-    crit_dmg = base_dmg * (crit_chance / 100)
-
+    crit_dmg = base_dmg * (base_crit / 100)
+    print(crits_per_round)
     crit_dmg_per_round = crit_hit_dmg * crits_per_round
 
     proc_dmg_per_crit = 0
