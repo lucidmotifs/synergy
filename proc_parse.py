@@ -12,9 +12,12 @@ class PROCS:
 # This test is to see whether more damage is gained
 # from which elite passive.
 def test_compare_elite_passives(this, that):
-    ## Set All variables TODO make external variables
+    ## Set All variables @TODO make external variables
+
+    
 
     # Calculate avg damage per hit
+    # Below values are at 2800 AR / 446 WP
     builder = 214
     consumer1 = 757
     consumer2 = 1511

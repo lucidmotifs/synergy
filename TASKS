@@ -1,0 +1,22 @@
+TASK List
+
+** Abilities **
+
+- Create structured object that represents the in-game 7 active / 7 passive
+/ 1 active auxiliary / 1 passive auxiliary paradigm.
+- Allow outside observers to use query the AbilityList with simple requests
+such as has_ability and get_ability (which return an ability object)
+- AbilityList should parse loading/unloading of abilities to do sanity checks.
+For example, only 7 actives and only one elite active/passive etc.
+-
+
+** Player ** (Potentially 'Avatar')
+
+- The player should be created as sort of a 'hosting' for several other objects
+(stats, abilities, etc.) that creates a 'build'. The reason to not specifically
+a Build object is because a) a build is a 'wish list' or at least an 'option'
+rather than a 'state'. Builds can be switched to, or aimed for - the Player is
+the reality right now. Potential states VS actual states.
+- At each stage, a players objects should be sanity checked that the set-up is
+valid so that subroutines can make assumptions (like, have this elite/have
+other elite only one should return true).
