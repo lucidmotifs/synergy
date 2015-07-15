@@ -2,6 +2,14 @@
 # All the various affects that can be applied. Including CC states and damage.
 import synergy
 
+class Affect:
+
+    duration = 0
+
+    def __init__(self):
+        # not implemented
+        pass
+
 
 class STATE_TYPES:
     NONE = 0
@@ -11,7 +19,7 @@ class STATE_TYPES:
     WEAKENED = 4
 
 
-class State(synergy.Affect):
+class State(Affect):
 
     state_type = 0
 
@@ -26,7 +34,7 @@ class BENEFIT_TYPES:
     HIT = 3
 
 
-class Benefit(synergy.Affect):
+class Benefit(Affect):
 
     benefit_type = 0
     magnitude = 0  # 1 is minor, 2 is major

@@ -1,41 +1,23 @@
-# Base Class Definitions
-class Affect:
+import abilities
+import affects
 
-    duration = 0
+# Entry point for the application
 
-    def __init__(self):
-        # not implemented
-        pass
+def main(args, kwargs):
+    # run the application...
+    # initially we want to display a menu with the potential options.
 
-# Base class for defining an ability. Subclassed into active, passive and
-# auxillary
-class Ability:
+    # ideas for options:
+    # - build an avatar (modify player object)
+    # - run a test (opens new menu for tests built)
+    # - create a build (modify an ability list)
+    print("Welcome... S.N.E.R.G.Y Online.")
 
-    name = ""
+    return 0
 
-    provides = None
-    requires = None
-
-    cooldown = 0
-
-    is_elite = 0
-    is_auxillary = 0
-
-    def __init__(self, name):
-        self.name = name
-
-    def requires():
-        pass
-
-    def provide():
-        pass
-
-
-class ActiveAbility(Ability):
-
-    ability_range = 0
-
-
-class PassiveAbility(Ability):
-
-    internal_cooldown = 0
+# boilerplate python to run main() when script is launched from console
+if __name__ == "__main__":
+	try:
+		sys.exit( not main([],{}) )
+	except KeyboardInterrupt:
+		sys.exit( 1 )
