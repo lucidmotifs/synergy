@@ -1,8 +1,4 @@
 # abilities.py
-# Temporary script to define abilities (active and passive) that
-# can be used for testing purposes.
-# Final release should have all these definitions in XML/JSON files.
-import synergy
 
 # Base class for defining an ability. Subclassed into active, passive and
 # auxillary
@@ -24,7 +20,7 @@ class Ability:
     def requires():
         pass
 
-    def provide():
+    def provides():
         pass
 
 # Active abilities can be used in a Rotation
@@ -41,5 +37,6 @@ class PassiveAbility(Ability):
 
 # Temporary script to define abilities (active and passive) that
 # can be used for testing purposes.
+# Final release should have all these definitions in XML/JSON files.
 
-helter_skelter = new ActiveAbility("Helter Skelter")
+helter_skelter = ActiveAbility("Helter Skelter")

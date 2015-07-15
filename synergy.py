@@ -1,3 +1,7 @@
+# system imports
+import sys
+
+# synergy imports
 import abilities
 import affects
 
@@ -11,7 +15,7 @@ def main(args, kwargs):
     # - build an avatar (modify player object)
     # - run a test (opens new menu for tests built)
     # - create a build (modify an ability list)
-    print("Welcome... S.N.E.R.G.Y Online.")
+    print("Welcome...S.Y.N.E.R.G.Y Online.")
 
     return 0
 
