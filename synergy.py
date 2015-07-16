@@ -68,7 +68,8 @@ def display_tests_menu():
         result = 0
         if _opt == 1:
             # Execute a test case
-            result = tests.thunderstruck_vs_rapidgetaway
+            al = ("Thunderstruck", "Rapid Getaway")
+            result = tests.compare_elite_passives(al)
         else if _opt == 'x' or _opt == 'X':
             print("Leaving menu...")
             print()

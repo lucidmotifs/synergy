@@ -20,6 +20,7 @@ For example, only 7 actives and only one elite active/passive etc.
 
 ** Player ** (Potentially 'Avatar')
 
+- Add Player object with basic methods
 - The player should be created as sort of a 'hosting' for several other objects
 (stats, abilities, etc.) that creates a 'build'. The reason to not specifically
 a Build object is because a) a build is a 'wish list' or at least an 'option'
