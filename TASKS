@@ -2,7 +2,7 @@ TASK List
 
 ** Main **
 
-- Build menu that displays selectable options to run.
+- -- Build menu that displays selectable options to run.  --
 - Search for module that handles python console input/output well.
 - Initially we should create the ability to run tests.
 - These tests are both useful for game reasons, and also as unit testing
