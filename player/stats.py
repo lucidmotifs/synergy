@@ -9,5 +9,5 @@ class Stats:
     critical = 0
     crit_power = 0
 
-    def __init__():
+    def __init__(self):
         pass

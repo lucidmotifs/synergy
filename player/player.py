@@ -11,3 +11,4 @@ class Player:
 
     def __init__():
         stats = Stats()
+        abilities = AbilityList()

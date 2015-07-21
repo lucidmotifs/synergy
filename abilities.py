@@ -39,7 +39,7 @@ class AbilityList():
 
     actives = []
     passives = []
-    auxillary = Ability()
+    auxillary = None
 
     def add(name):
         if name in data.abilities.active.values():

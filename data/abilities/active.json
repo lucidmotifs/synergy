@@ -1,0 +1,16 @@
+{
+  "ability": {
+    "name": "helter skelter",
+    "is_elite": "false",
+    "cooldown": "45",
+    "range": "10",
+	  "provides": {
+      "damage": {
+        "mag": "600"
+      },
+      "state": {
+        "type": "impaired"
+      }
+    }
+  }
+}

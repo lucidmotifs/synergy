@@ -1,0 +1,16 @@
+{
+  "ability": {
+    "name": "thunderstruck",
+    "is_elite": "true",
+	  "provides": {
+      "damage": {
+        "mag": "394",
+      }
+    },
+    "requires": {
+      "critical": {
+        "chance": "100"
+      }
+    }
+  }
+}
