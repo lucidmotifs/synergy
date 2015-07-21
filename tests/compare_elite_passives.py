@@ -52,35 +52,18 @@ def test_compare_elite_passives(abilityList, player = Player()):
         # @TODO replace below with damage formulae
         total_crit_damage = base_damage * ((crit_chance/100.0) * crit_power)
 
-    # need to calculate avg crit power
-    # this is a factor of laceration downtime
-    # as a percentage of combat time
-    # subtracted from max crit power
+        proc_dmg_per_crit = 0
+        if player.using_ability("One in the Chamber"):
+            proc_dmg_per_crit = PROCS.ONE_IN_THE_CHAMBER
+        if player.using_ability("Thunderstruck"):
+            proc_dmg_per_crit = PROCS.THUNDERSTRUCK
 
-    # assume no randomness over 14 hits
-    dmg_per_hit = dps
+        proc_dmg_per_round = proc_dmg_per_crit * crits_per_round
 
-    crits_per_round = combat_time * (base_crit/100.0)  # where combat time is num hits
-    crit_hit_dmg = dmg_per_hit * base_crit_dmg
-    # builder dmg needs to be seperated from consumer (crit % will differ too...)
-    crit_dmg = base_dmg * (base_crit / 100)
-    print(crits_per_round)
-    crit_dmg_per_round = crit_hit_dmg * crits_per_round
+        print("Base Damage: %d \n" % base_dmg)
+        print("Crit Damage: {0} ({1}% Crit) \n".format(int(crit_dmg_per_round), base_crit))
+        print("Proc Damage: %d \n" % proc_dmg_per_round)
 
-    proc_dmg_per_crit = 0
-    if using_oneinthechamber:
-        proc_dmg_per_crit += PROCS.ONE_IN_THE_CHAMBER  # ONE_IN_THE_CHAMBER
-    if using_thunderstruck:
-        proc_dmg_per_crit += PROCS.THUNDERSTRUCK
+        # end loop
 
-    proc_dmg_per_round = proc_dmg_per_crit * crits_per_round
-
-    print("Base Damage: %d \n" % base_dmg)
-    print("Crit Damage: {0} ({1}% Crit) \n".format(int(crit_dmg_per_round), base_crit))
-    print("Proc Damage: %d \n" % proc_dmg_per_round)
-
-    return base_dmg + crit_dmg_per_round + proc_dmg_per_round
-
-
-print(test_compare_elite_passives(True, False))
-print(test_compare_elite_passives(False, True))
+    return 1

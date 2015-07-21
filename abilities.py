@@ -35,6 +35,20 @@ class PassiveAbility(Ability):
     internal_cooldown = 1
 
 
+class AbilityList():
+
+    actives = []
+    passives = []
+    auxillary = Ability()
+
+    def add(name):
+        if name in data.abilities.active.values():
+            actives.append(ActiveAbility(name))
+        elif name in data.abilities.passive.values():
+            passvies.append(ActiveAbility(name))
+        elif name in data.abilities.aux.values():
+            auxillary = Ability(name)
+
 # Temporary script to define abilities (active and passive) that
 # can be used for testing purposes.
 # Final release should have all these definitions in XML/JSON files.
