@@ -29,3 +29,7 @@ the reality right now. Potential states VS actual states.
 - At each stage, a players objects should be sanity checked that the set-up is
 valid so that subroutines can make assumptions (like, have this elite/have
 other elite only one should return true).
+
+** Testing **
+
+- Create simple test for JSON data loading

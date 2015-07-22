@@ -1,10 +1,24 @@
 {
-  "ability": {
-    "name": "helter skelter",
+  "helter_skelter": {
+    "name": "Helter Skelter",
     "is_elite": "false",
     "cooldown": "45",
     "range": "10",
-	  "provides": {
+    "provides": {
+      "damage": {
+        "mag": "600"
+      },
+      "state": {
+        "type": "impaired"
+      }
+    }
+  },
+  "bamboo_cutter": {
+    "name": "Bamboo Cutter",
+    "is_elite": "false",
+    "cooldown": "45",
+    "range": "10",
+    "provides": {
       "damage": {
         "mag": "600"
       },

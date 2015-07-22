@@ -1,11 +1,14 @@
+import os
 import json
 # Object that holds the data for abilitites.
 # Auto loads its dictionary when initialized.
 class Abilities():
-    active = {}
-    passive = {}
+    actives = {}
+    passives = {}
     auxillary = {}
 
     def __init__(self):
-        with open('active.json') as active_list:
-            active = json.load(active_list)
+        cwd = os.path.dirname(os.path.realpath(__file__))
+
+        with open(cwd + '/active.json') as active_list:
+            self.actives = json.load(active_list)

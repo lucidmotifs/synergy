@@ -4,7 +4,7 @@ import sys
 # synergy imports
 import abilities
 import affects
-import tests
+from tests import test_json_data_import
 
 # Entry point for the application
 
@@ -58,21 +58,28 @@ def display_tests_menu():
         print("==============================")
         print()
         print("(1) Test Thunderstruck vs Rapid Getaway")
+        print("(2) Test JSON Data Import")
         print()
         print("E(x)it the menu")
         print()
 
-        _opt = input("Enter choice:")
+        _opt = input("Enter choice: ")
+
+        print()
 
         # capture the result of test
         result = 0
-        if _opt == 1:
+        if _opt == "1":
             # Execute a test case
             al = ("Thunderstruck", "Rapid Getaway")
             result = tests.compare_elite_passives(al)
-        else if _opt == 'x' or _opt == 'X':
+        elif _opt == "2":
+            # Execute a test case
+            result = test_json_data_import.run()
+        elif _opt == 'x' or _opt == 'X':
             print("Leaving menu...")
             print()
+            return main([], {})
         else:
             print("Invalid selection, please choose a valid menu item.")
             print()
