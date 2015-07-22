@@ -1,14 +1,29 @@
 {
-  "ability": {
-    "name": "thunderstruck",
+  "thunderstruck": {
+    "name": "Thunderstruck",
     "is_elite": "true",
 	  "provides": {
-      "damage": {
-        "mag": "394",
+      "affect_damage": {
+        "magnitude": "394",
       }
     },
     "requires": {
-      "critical": {
+      "attack_critical": {
+        "chance": "100"
+      }
+    }
+  },
+  "rapid_getaway": {
+    "name": "Rapid Get Away",
+    "is_elite": "true",
+	  "provides": {
+      "benefit_critical": {
+        "magnitude": "10",
+        "label": "minor"
+      }
+    },
+    "requires": {
+      "attack_critical": {
         "chance": "100"
       }
     }
