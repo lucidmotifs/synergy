@@ -6,10 +6,12 @@
     "range": "10",
     "provides": {
       "damage": {
-        "mag": "600"
+        "type": "direct",
+        "amount": "600"
       },
       "state": {
-        "type": "impaired"
+        "type": "impaired",
+        "duration": "3"
       }
     }
   },

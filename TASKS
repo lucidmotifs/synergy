@@ -16,7 +16,8 @@ the actual code.
 such as has_ability and get_ability (which return an ability object)
 - AbilityList should parse loading/unloading of abilities to do sanity checks.
 For example, only 7 actives and only one elite active/passive etc.
--
+- Define STATES, BENEFITS, DAMAGES etc. as sub-object of Affect so the data
+can be read from ability data loaded in by JSON
 
 ** Player ** (Potentially 'Avatar')
 

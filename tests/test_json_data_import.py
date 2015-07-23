@@ -14,4 +14,16 @@ def run():
     print(test_data.actives["helter_skelter"]["name"])
     print()
 
+    print()
+    print("Display formatted provides tree: ")
+    print()
+
+    provides = test_data.actives['helter_skelter']['provides']
+
+    for k,v in provides.items():
+        print(k)
+        print(v)
+
+    print()
+
     return 1
