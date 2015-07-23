@@ -1,4 +1,6 @@
 # abilities.py
+import affects
+import data.abilities
 
 # Base class for defining an ability. Subclassed into active, passive and
 # auxillary
@@ -41,13 +43,18 @@ class AbilityList():
     passives = []
     auxillary = None
 
-    def add(name):
-        if name in data.abilities.active.values():
-            actives.append(ActiveAbility(name))
-        elif name in data.abilities.passive.values():
-            passvies.append(ActiveAbility(name))
-        elif name in data.abilities.aux.values():
-            auxillary = Ability(name)
+    def add(self, name):
+        if name in data.abilities.load()[0].values():
+            self.actives.append(ActiveAbility(name))
+            return True
+        elif name in data.abilities.load()[1].values():
+            self.passvies.append(PassiveAbility(name))
+            return True
+        elif name in data.abilities.load()[2].values():
+            self.auxillary = Ability(name)
+            return True
+        else:
+            return False
 
 # Temporary script to define abilities (active and passive) that
 # can be used for testing purposes.

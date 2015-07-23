@@ -4,11 +4,12 @@ import sys
 # synergy imports
 import abilities
 import affects
-from tests import test_json_data_import
+import tests
+from tests import *
 
 # Entry point for the application
 
-def main(args, kwargs):
+def main(args = [], kwargs = {}):
     # run the application...
     # initially we want to display a menu with the potential options.
 
@@ -59,6 +60,7 @@ def display_tests_menu():
         print()
         print("(1) Test Thunderstruck vs Rapid Getaway")
         print("(2) Test JSON Data Import")
+        print("(3) Test Ability Object Creation")
         print()
         print("E(x)it the menu")
         print()
@@ -76,6 +78,9 @@ def display_tests_menu():
         elif _opt == "2":
             # Execute a test case
             result = test_json_data_import.run()
+        elif _opt == "3":
+            # Execute a test case
+            result = test_create_ability_from_data.run()
         elif _opt == 'x' or _opt == 'X':
             print("Leaving menu...")
             print()

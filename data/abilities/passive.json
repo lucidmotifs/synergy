@@ -3,12 +3,14 @@
     "name": "Thunderstruck",
     "is_elite": "true",
 	  "provides": {
-      "affect_damage": {
-        "magnitude": "394",
+      "damage": {
+        "type": "direct",
+        "amount": "394"
       }
     },
     "requires": {
-      "attack_critical": {
+      "attack": {
+        "type": "critical",
         "chance": "100"
       }
     }
@@ -17,13 +19,15 @@
     "name": "Rapid Get Away",
     "is_elite": "true",
 	  "provides": {
-      "benefit_critical": {
+      "benefit": {
+        "type": "critical",
         "magnitude": "10",
         "label": "minor"
       }
     },
     "requires": {
-      "attack_critical": {
+      "attack": {
+        "type": "hit",
         "chance": "100"
       }
     }

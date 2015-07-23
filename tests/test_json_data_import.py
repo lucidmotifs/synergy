@@ -3,22 +3,22 @@
 import data.abilities
 
 def run():
-    test_data = data.abilities.Abilities()
+    test_data = data.abilities.load()[0]
 
-    print("Number of Abilities Loaded: %s" % len(test_data.actives))
+    print("Number of Abilities Loaded: %s" % len(test_data))
     print("Raw Data:")
-    print(test_data.actives)
+    print(test_data)
 
     print()
     print("Printing random ability name: ")
-    print(test_data.actives["helter_skelter"]["name"])
+    print(test_data["helter_skelter"]["name"])
     print()
 
     print()
     print("Display formatted provides tree: ")
     print()
 
-    provides = test_data.actives['helter_skelter']['provides']
+    provides = test_data['helter_skelter']['provides']
 
     for k,v in provides.items():
         print(k)
