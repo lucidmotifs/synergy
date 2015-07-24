@@ -8,8 +8,8 @@ class Ability:
 
     name = ""
 
-    provides = None
-    requires = None
+    m_provides = ()
+    m_requires = ()
 
     cooldown = 0
 
@@ -19,11 +19,21 @@ class Ability:
     def __init__(self, name):
         self.name = name
 
+    def create(self, raw):
+        for k,v in raw.items():
+            setattr(self, k, v)
+
     def requires():
         pass
 
     def provides():
         pass
+
+    def __str__(self):
+        return "Ability {0} has a cooldown of {1} and has {2} provides".format(
+        self.name,
+        self.cooldown,
+        len(self.m_provides))
 
 # Active abilities can be used in a Rotation
 class ActiveAbility(Ability):
@@ -43,18 +53,38 @@ class AbilityList():
     passives = []
     auxillary = None
 
-    def add(self, name):
-        if name in data.abilities.load()[0].values():
-            self.actives.append(ActiveAbility(name))
-            return True
-        elif name in data.abilities.load()[1].values():
-            self.passvies.append(PassiveAbility(name))
-            return True
-        elif name in data.abilities.load()[2].values():
-            self.auxillary = Ability(name)
-            return True
+    # Fill the list with a pre-defined set of objects from a dictionary.
+    # This is generally used to create the ability wheel from game data,
+    # but can also be used as an import/export feature.
+    def populate(self, data, subtype = None):
+        if not subtype:
+            for key, value in data:
+                # key is subtype, value is data
+                return self.populate(value, key)
         else:
-            return False
+            for key, value in data.items():
+                if subtype == "actives":
+                    a = ActiveAbility(value["name"])
+                    a.create(value)
+                    self.add(a)
+                elif subtype == "passives":
+                    a = PassiveAbility(value["name"])
+                    a.create(value)
+                    self.add(a)
+                else:
+                    a = Ability(value["name"])
+                    a.create(value)
+
+        return len(self.actives) or len(self.passives)
+
+
+    def add(self, ability, subtype = None):
+        # Adds an ability to the list, using either the Type of the object
+        # or the specific subtype, if defined.
+        if isinstance(ability, ActiveAbility) or subtype == 'active':
+            self.actives.append(ability)
+        elif isinstance(ability, PassiveAbility) or subtype == 'passive':
+            self.passives.append(ability)
 
 # Temporary script to define abilities (active and passive) that
 # can be used for testing purposes.

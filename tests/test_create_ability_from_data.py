@@ -12,8 +12,11 @@ def run():
     # loop through data creating an ability from each 'name'
     for ability in test_data:
         print(ability["name"])
-        if al.add(ability):
+        if al.populate({'test_ability': ability}, "actives"):
             print("Added: %s" % ability["name"])
+            print()
+            print("Print object: ")
+            print(al.actives[-1])
         else:
             print("Failed!")
             return 0

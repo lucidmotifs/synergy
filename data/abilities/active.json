@@ -18,7 +18,7 @@
   "bamboo_cutter": {
     "name": "Bamboo Cutter",
     "is_elite": "false",
-    "cooldown": "45",
+    "cooldown": "1",
     "range": "10",
     "provides": {
       "damage": {
