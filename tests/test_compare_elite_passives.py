@@ -8,6 +8,15 @@ import formulae.damage
 # This test is to see whether more damage is gained
 # from which elite passive.
 def test_compare_elite_passives(abilityList, player = Player()):
+    # Build wheel. This should be auto-matic when synergy starts, so
+    # potentially global?
+    wheel = abilities.AbilityList()
+    # populate this ability list with everything
+    wheel.populate(data.abilities.load())
+    # Test (remove to actual wheel creation test later...)
+    if len(wheel.actives) == 0:
+        return 0  # fail
+
     ## Set All variables @TODO make external variables
     # test variables  @TODO make part of test object
     COMBAT_TIME = 30
@@ -15,10 +24,18 @@ def test_compare_elite_passives(abilityList, player = Player()):
     CRIT_POWER = 40
 
     for a in abilityList:
+        # Load ability from wheel
+        elitePassive = wheel.get(a)
 
-        print("Testing with: {0}".format(a))
-        # Create player object
-        player.abilities.add(PassiveAbility(a))
+        # Fail if we don't retrieve the ability
+        if elitePassive is None:
+            return 0
+
+        print("Testing with: {0}".format(elitePassive.name))
+
+        # Create player object and add the elitePassive - this will replace
+        # any other elite passive as there can only be one.
+        player.abilities.add(elitePassive)
 
         # Calculate theoretical base DPS
         # ...No procs or bleeds?

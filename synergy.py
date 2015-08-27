@@ -74,7 +74,7 @@ def display_tests_menu():
         if _opt == "1":
             # Execute a test case
             al = ("Thunderstruck", "Rapid Getaway")
-            result = tests.compare_elite_passives(al)
+            result = tests.test_compare_elite_passives(al)
         elif _opt == "2":
             # Execute a test case
             result = test_json_data_import.run()

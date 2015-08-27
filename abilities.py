@@ -46,8 +46,8 @@ class PassiveAbility(Ability):
 
 class AbilityList():
 
-    actives = []
-    passives = []
+    actives = {}
+    passives = {}
     auxillary = None
 
     # Fill the list with a pre-defined set of objects from a dictionary.
@@ -77,9 +77,18 @@ class AbilityList():
         # Adds an ability to the list, using either the Type of the object
         # or the specific subtype, if defined.
         if isinstance(ability, ActiveAbility) or subtype == 'active':
-            self.actives.append(ability)
+            self.actives.update({ability.name: ability})
         elif isinstance(ability, PassiveAbility) or subtype == 'passive':
-            self.passives.append(ability)
+            self.passives.append({ability.name: ability})
+
+    # This method could possibly lead to performance issues if we are constantly
+    # looking up abilities. This is why it's so important to create smaller
+    # lists for an avatar and potentially a better look-up table.
+    def get(self, ability):
+        if ability in self.actives:
+            return self.actives[ability];
+        else if ability in self.passives:
+            return self.passives[ability];
 
 # Temporary script to define abilities (active and passive) that
 # can be used for testing purposes.
