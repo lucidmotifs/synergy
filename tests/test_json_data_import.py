@@ -3,28 +3,36 @@
 import data.abilities
 
 def run():
-    test_data = data.abilities.load()[0]
+    # List of all abilities
+    test_data = data.abilities.load()
 
-    print("Number of Abilities Loaded: %s" % len(test_data))
+    # For each list in the test_data loaded.
+    for d in test_data:
+        # turn each result into a list
+        l = list(d.values())
+
+        print("Number of Abilities Loaded: %s" % len(l))
+        print()
+        print("Raw Data: \n")
+        print(d.values())
+
+        print()
+        print("Printing random ability name: \n")
+        print(l[0]["name"])
+        print()
+
+        print()
+        print("Display formatted provides tree: ")
+        print()
+
+        provides = l[0]['provides']
+
+        for k,v in provides.items():
+            print(k)
+            print(v)
+            print()
+
+    # line for readibility
     print()
-    print("Raw Data: \n")
-    print(test_data)
 
-    print()
-    print("Printing random ability name: \n")
-    print(test_data["helter_skelter"]["name"])
-    print()
-
-    print()
-    print("Display formatted provides tree: ")
-    print()
-
-    provides = test_data['helter_skelter']['provides']
-
-    for k,v in provides.items():
-        print(k)
-        print(v)
-
-    print()
-
-    return 1
+    return 1  # pass

@@ -13,7 +13,7 @@ def load():
     with open(cwd + '/active.json') as active_list:
         actives = json.load(active_list)
     with open(cwd + '/passive.json') as passive_list:
-        passive = json.load(passive_list)
+        passives = json.load(passive_list)
 
     loaded = [actives, passives]
 
