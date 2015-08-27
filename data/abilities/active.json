@@ -22,10 +22,7 @@
     "range": "10",
     "provides": {
       "damage": {
-        "mag": "600"
-      },
-      "state": {
-        "type": "impaired"
+        "mag": "207"
       }
     }
   }

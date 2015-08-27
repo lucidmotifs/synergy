@@ -8,8 +8,8 @@ class Ability:
 
     name = ""
 
-    m_provides = ()
-    m_requires = ()
+    provides = ()
+    requires = ()
 
     cooldown = 0
 
@@ -21,19 +21,16 @@ class Ability:
 
     def create(self, raw):
         for k,v in raw.items():
+            # Lazy object creation. Let's check if we HAVE the attribute
+            # and if we do, then set it. If we don't, we want a debug message
+            # outputted saying that we got extra/erroneous data.
             setattr(self, k, v)
 
-    def requires():
-        pass
-
-    def provides():
-        pass
-
     def __str__(self):
-        return "Ability {0} has a cooldown of {1} and has {2} provides".format(
+        return "Ability {0} has a cooldown of {1} secs and has {2} provides".format(
         self.name,
         self.cooldown,
-        len(self.m_provides))
+        len(self.provides))
 
 # Active abilities can be used in a Rotation
 class ActiveAbility(Ability):
@@ -65,15 +62,13 @@ class AbilityList():
             for key, value in data.items():
                 if subtype == "actives":
                     a = ActiveAbility(value["name"])
-                    a.create(value)
-                    self.add(a)
                 elif subtype == "passives":
                     a = PassiveAbility(value["name"])
-                    a.create(value)
-                    self.add(a)
                 else:
                     a = Ability(value["name"])
-                    a.create(value)
+            # Populate the Abilities properties from the JSON data.
+            a.create(value)
+            self.add(a)
 
         return len(self.actives) or len(self.passives)
 

@@ -6,11 +6,12 @@ def run():
     test_data = data.abilities.load()[0]
 
     print("Number of Abilities Loaded: %s" % len(test_data))
-    print("Raw Data:")
+    print()
+    print("Raw Data: \n")
     print(test_data)
 
     print()
-    print("Printing random ability name: ")
+    print("Printing random ability name: \n")
     print(test_data["helter_skelter"]["name"])
     print()
 
