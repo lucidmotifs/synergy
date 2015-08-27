@@ -17,12 +17,12 @@ def main(args = [], kwargs = {}):
     # - build an avatar (modify player object)
     # - run a test (opens new menu for tests built)
     # - create a build (modify an ability list)
-    print("Welcome...S.Y.N.E.R.G.Y Online.")
+    print("\nWelcome...S.Y.N.E.R.G.Y Online.")
 
     _opt = ''
     while not _opt == 'x' and not _opt == 'X':
         # Display menu
-        print("Select from the options below:")
+        print("\nSelect from the options below:")
         print("==============================")
         print()
         print("(B)uild an Avatar. Modify your player object for use in tests")
@@ -53,7 +53,7 @@ def display_tests_menu():
     _opt = ''
     while not _opt == 'x' and not _opt == 'X':
         # Display menu
-        print("Tests Menu:")
+        print("\nTests Menu:")
         print("-----------")
         print("Select from the options below:")
         print("==============================")

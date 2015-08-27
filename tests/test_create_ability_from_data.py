@@ -6,19 +6,21 @@ import data.abilities
 
 def run():
     test_data = data.abilities.load()[0].values()  # active abilities
-    print(data.abilities.load()[0].items())
+    #print(data.abilities.load()[0].items())
     al = abilities.AbilityList()
 
     # loop through data creating an ability from each 'name'
     for ability in test_data:
-        print(ability["name"])
+        #print(ability["name"])
         if al.populate({'test_ability': ability}, "actives"):
-            print("Added: %s" % ability["name"])
+            print("\nAdded: %s" % ability["name"])
             print()
             print("Print object: ")
             print(al.actives[-1])
+            print()
         else:
-            print("Failed!")
+            print("Failed!\n")
+            # TODO Add debug info as to why this test failed.
             return 0
 
     return 1
