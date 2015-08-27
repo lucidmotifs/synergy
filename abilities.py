@@ -87,7 +87,7 @@ class AbilityList():
     def get(self, ability):
         if ability in self.actives:
             return self.actives[ability];
-        else if ability in self.passives:
+        elif ability in self.passives:
             return self.passives[ability];
 
 # Temporary script to define abilities (active and passive) that

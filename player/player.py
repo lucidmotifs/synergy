@@ -1,14 +1,16 @@
-import stats
+from player.stats import Stats
+import abilities
 
+dir(abilities)
 # Player Class implementation
 class Player:
     # stats object
-    stats = None
+    _stats = None
     # managed ability list
-    abilities = None
+    _abilities = None
     # item list
-    items = None
+    _items = None
 
-    def __init__():
-        stats = Stats()
-        abilities = AbilityList()
+    def __init__(self):
+        self._stats = Stats()
+        #self._abilities = abilities.AbilityList()

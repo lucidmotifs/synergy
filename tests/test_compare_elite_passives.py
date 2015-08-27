@@ -5,9 +5,13 @@
 
 import formulae.damage
 
+# TODO learn how to do Python module correctly to avoid this long hierarchy list
+from player.player import Player
+from player.stats import Stats
+
 # This test is to see whether more damage is gained
 # from which elite passive.
-def test_compare_elite_passives(abilityList, player = Player()):
+def run(abilityList, player = Player()):
     # Build wheel. This should be auto-matic when synergy starts, so
     # potentially global?
     wheel = abilities.AbilityList()
