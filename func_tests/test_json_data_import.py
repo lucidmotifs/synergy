@@ -1,10 +1,10 @@
 # Test to ensure that the data imported via JSON is sane
 # and useable by synergy objects.
-import data.abilities
+import data
 
 def run():
     # List of all abilities
-    test_data = data.abilities.load()
+    test_data = data.load()
 
     # For each list in the test_data loaded.
     for d in test_data:

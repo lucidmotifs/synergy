@@ -2,10 +2,16 @@
 import sys
 
 # synergy imports
-import abilities
-import affects
-import tests
-from tests import *
+import game
+import game.abilities
+import game.affects
+import func_tests
+from func_tests import *
+
+# class import
+#from game.abilities import AbilityList
+
+print(game.__file__)
 
 # Entry point for the application
 

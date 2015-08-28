@@ -3,20 +3,27 @@
 # In future, hopefully this module can be used with just crit/pen glyph
 # points (plus minor crit / major crit chance)
 
-import formulae.damage
+# import modules
+import data
+import game.abilities
+import game.formulae.damage
 
 # TODO learn how to do Python module correctly to avoid this long hierarchy list
-from player.player import Player
-from player.stats import Stats
+# import classes
+from game.player import Player
+from game.player import Stats
+
 
 # This test is to see whether more damage is gained
 # from which elite passive.
-def run(abilityList, player = Player()):
+def run(alist, player = Player()):
     # Build wheel. This should be auto-matic when synergy starts, so
     # potentially global?
-    wheel = abilities.AbilityList()
+    wheel = game.abilities.AbilityList()
+
     # populate this ability list with everything
-    wheel.populate(data.abilities.load())
+    wheel.populate(data.load())
+
     # Test (remove to actual wheel creation test later...)
     if len(wheel.actives) == 0:
         return 0  # fail
@@ -27,7 +34,7 @@ def run(abilityList, player = Player()):
     CRIT_CHANCE = 20  # set to a number to default back to
     CRIT_POWER = 40
 
-    for a in abilityList:
+    for a in alist:
         # Load ability from wheel
         elitePassive = wheel.get(a)
 

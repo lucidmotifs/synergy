@@ -1,3 +1,21 @@
+import game.abilities
+
+dir(game)
+
+# Player Class implementation
+class Player:
+    # stats object
+    _stats = None
+    # managed ability list
+    _abilities = None
+    # item list
+    _items = None
+
+    def __init__(self):
+        self._stats = Stats()
+        #self._abilities = abilities.AbilityList()
+
+
 # Stats class implementation
 # class hold each stat, as acts as a short-cut for calling
 # game formulas that calculate certain RNG elements, given a particular

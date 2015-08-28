@@ -1,6 +1,6 @@
 # abilities.py
-import affects
-import data.abilities
+from . import affects
+import data
 
 # Base class for defining an ability. Subclassed into active, passive and
 # auxillary
@@ -59,16 +59,25 @@ class AbilityList():
                 # key is subtype, value is data
                 return self.populate(value, key)
         else:
-            for key, value in data.items():
-                if subtype == "actives":
-                    a = ActiveAbility(value["name"])
-                elif subtype == "passives":
-                    a = PassiveAbility(value["name"])
-                else:
-                    a = Ability(value["name"])
-            # Populate the Abilities properties from the JSON data.
-            a.create(value)
-            self.add(a)
+            try:
+                for key, value in data.items():
+                    if subtype == "actives":
+                        a = ActiveAbility(value["name"])
+                    elif subtype == "passives":
+                        a = PassiveAbility(value["name"])
+                    else:
+                        a = Ability(value["name"])
+
+                    # Populate the Abilities properties from the JSON data.
+                    a.create(value)
+                    self.add(a)
+
+            except AttributeError as e:
+                print("Invalid data passed, operation failed.")
+                print("Error: {0} \n".format(e))
+                print(data)
+
+
 
         return len(self.actives) or len(self.passives)
 
@@ -89,9 +98,3 @@ class AbilityList():
             return self.actives[ability];
         elif ability in self.passives:
             return self.passives[ability];
-
-# Temporary script to define abilities (active and passive) that
-# can be used for testing purposes.
-# Final release should have all these definitions in XML/JSON files.
-
-helter_skelter = ActiveAbility("Helter Skelter")
