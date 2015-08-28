@@ -1,7 +1,4 @@
-# affects.py
-# All the various affects that can be applied. Including CC states and damage.
-import synergy
-
+# Base class for all skill and item effects in the game
 class Affect:
 
     # Specific type related to the pertitent STRUCT

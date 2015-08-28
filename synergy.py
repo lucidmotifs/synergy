@@ -9,9 +9,7 @@ import func_tests
 from func_tests import *
 
 # class import
-#from game.abilities import AbilityList
-
-print(game.__file__)
+from game.abilities import AbilityList
 
 # Entry point for the application
 
