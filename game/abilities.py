@@ -32,10 +32,12 @@ class Ability:
         self.cooldown,
         len(self.provides))
 
+
 # Active abilities can be used in a Rotation
 class ActiveAbility(Ability):
 
     ability_range = 3
+
 
 # Passive abilities, no activation - determine effectiveness of Rotation
 # (and can potentially craft it, think EF)
@@ -55,12 +57,23 @@ class AbilityList():
     # but can also be used as an import/export feature.
     def populate(self, data, subtype = None):
         if not subtype:
-            for key, value in data:
-                # key is subtype, value is data
-                return self.populate(value, key)
+            try:
+                for key, value in data.items():
+                    # key is subtype, value is data
+                    # ensure we don't pass a key of 'None' or will
+                    # loop forever (maybe?)
+                    if key is not None:
+                        self.populate(value, key)
+                    else:
+                        return False
+            except ValueError as e:
+                print("Invalid data passed, populate operation failed.")
+                print("Error: {0} on data supplied \n {1}".format(e, data))
         else:
             try:
                 for key, value in data.items():
+                    # debugging
+                    print (value)
                     if subtype == "actives":
                         a = ActiveAbility(value["name"])
                     elif subtype == "passives":
@@ -70,14 +83,12 @@ class AbilityList():
 
                     # Populate the Abilities properties from the JSON data.
                     a.create(value)
-                    self.add(a)
+                    self.add(a, subtype)
 
             except AttributeError as e:
                 print("Invalid data passed, operation failed.")
                 print("Error: {0} \n".format(e))
                 print(data)
-
-
 
         return len(self.actives) or len(self.passives)
 
@@ -88,7 +99,7 @@ class AbilityList():
         if isinstance(ability, ActiveAbility) or subtype == 'active':
             self.actives.update({ability.name: ability})
         elif isinstance(ability, PassiveAbility) or subtype == 'passive':
-            self.passives.append({ability.name: ability})
+            self.passives.update({ability.name: ability})
 
     # This method could possibly lead to performance issues if we are constantly
     # looking up abilities. This is why it's so important to create smaller

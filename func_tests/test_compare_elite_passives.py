@@ -24,8 +24,12 @@ def run(alist, player = Player()):
     # populate this ability list with everything
     wheel.populate(data.load())
 
+    # debugging; checking wheel
+    #print (wheel)
+
     # Test (remove to actual wheel creation test later...)
     if len(wheel.actives) == 0:
+        print("Empty Wheel")
         return 0  # fail
 
     ## Set All variables @TODO make external variables
@@ -40,13 +44,16 @@ def run(alist, player = Player()):
 
         # Fail if we don't retrieve the ability
         if elitePassive is None:
+            # throw TestFailException
+            print("Test Failed: Could not retrieve ability from wheel [%s]\n"
+                % a)
             return 0
 
         print("Testing with: {0}".format(elitePassive.name))
 
         # Create player object and add the elitePassive - this will replace
         # any other elite passive as there can only be one.
-        player.abilities.add(elitePassive)
+        player.abilities().add(elitePassive)
 
         # Calculate theoretical base DPS
         # ...No procs or bleeds?

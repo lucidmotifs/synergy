@@ -13,7 +13,10 @@ class Player:
 
     def __init__(self):
         self._stats = Stats()
-        #self._abilities = abilities.AbilityList()
+        self._abilities = abilities.AbilityList()
+
+    def add_ability(self, ability):
+        
 
 
 # Stats class implementation

@@ -1,5 +1,4 @@
-{
-  "thunderstruck": {
+{"thunderstruck": {
     "name": "Thunderstruck",
     "is_elite": "true",
 	  "provides": {
@@ -16,7 +15,7 @@
     }
   },
   "rapid_getaway": {
-    "name": "Rapid Get-Away",
+    "name": "Rapid Getaway",
     "is_elite": "true",
 	  "provides": {
       "benefit": {

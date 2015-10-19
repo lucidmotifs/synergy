@@ -43,7 +43,8 @@ def main(args = [], kwargs = {}):
         if _opt == 'r' or _opt == 'R':
             # Tests menu
             display_tests_menu()
-
+        elif _opt == 'x' or _opt == 'X':
+            return 0
         else:
             print("Invalid option supplied, please enter only a valid menu key")
 
@@ -89,7 +90,7 @@ def display_tests_menu():
         elif _opt == 'x' or _opt == 'X':
             print("Leaving menu...")
             print()
-            return main([], {})
+            return 0
         else:
             print("Invalid selection, please choose a valid menu item.")
             print()

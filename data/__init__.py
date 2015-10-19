@@ -15,6 +15,6 @@ def load():
     with open(cwd + '/passive_abilities.json') as passive_list:
         passives = json.load(passive_list)
 
-    loaded = [actives, passives]
+    loaded = {"actives": actives, "passives": passives}
 
     return loaded
