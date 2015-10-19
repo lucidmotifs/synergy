@@ -2,6 +2,12 @@
 from . import affects
 import data
 
+# constants
+MAX_ACTIVES = 7
+MAX_PASSIVES = 7
+MAX_ACTIVE_AUXILLARY = 1
+MAX_PASSIVE_AUXILLARY = 1
+
 # Base class for defining an ability. Subclassed into active, passive and
 # auxillary
 class Ability:
@@ -109,3 +115,28 @@ class AbilityList():
             return self.actives[ability];
         elif ability in self.passives:
             return self.passives[ability];
+
+
+class Deck(AbilityList):
+
+    # Over-write this method adding in limitations such as max number of abilites
+    # allowed in various subtypes
+    def add(self, ability, subtype = None):
+        # Adds an ability to the list, using either the Type of the object
+        # or the specific subtype, if defined.
+        if isinstance(ability, ActiveAbility) or subtype == 'active':
+            if len(self.actives >= MAX_ACTIVES):
+                #print("Active ability list full")
+                return False
+            else:
+                self.actives.update({ability.name: ability})
+                # check ability has been added to dictionary
+                return ability.name in self.actives
+        elif isinstance(ability, PassiveAbility) or subtype == 'passive':
+            if len(self.passives >= MAX_PASSIVES):
+                #print("Passive ability list full")
+                return False
+            else:
+                self.passives.update({ability.name: ability})
+                # check ability has been added to dictionary
+                return ability.name in self.passives
