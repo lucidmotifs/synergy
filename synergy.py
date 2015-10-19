@@ -44,7 +44,8 @@ def main(args = [], kwargs = {}):
             # Tests menu
             display_tests_menu()
 
-        _opt = 'x'
+        else:
+            print("Invalid option supplied, please enter only a valid menu key")
 
     return 0
 
