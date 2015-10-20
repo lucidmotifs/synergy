@@ -123,6 +123,15 @@ class AbilityList():
 
 class Deck(AbilityList):
 
+    # @TODO this entire piece of code needs to be re-though. Every time we do
+    # anything to abilities we are doing them for both actives and passive.
+    # Most of the time the behaviour is exactly the same - the only real difference
+    # between the abilities is a) the number we can have of each and b) the way
+    # they operate in combat. We should definitely keep two different classes
+    # but they should all be in a single collection - even if we maintain seperate
+    # lists of keys to access them quickly, rather than iterate through everytime
+    # we want to acces 'just the passives' or whatever.
+
     # Over-write this method adding in limitations such as max number of abilites
     # allowed in various subtypes
     def add(self, ability, subtype = None):
@@ -133,6 +142,12 @@ class Deck(AbilityList):
                 #print("Active ability list full")
                 return False
             else:
+                # if there is already an elite, and this ebility is an elite
+                # then remove the former before adding
+                if len(self.get_elite("actives") >= 1) && ability.is_elite:
+                    # remove the old elite
+                    self.actives.pop(self.get_elite("actives")[0].name)
+
                 self.actives.update({ability.name: ability})
                 # check ability has been added to dictionary
                 return ability.name in self.actives
@@ -141,6 +156,34 @@ class Deck(AbilityList):
                 #print("Passive ability list full")
                 return False
             else:
+                # if there is already an elite, and this ebility is an elite
+                # then remove the former before adding
+                if len(self.get_elite("passvies") >= 1) && ability.is_elite:
+                    # remove the old elite
+                    self.passives.pop(self.get_elite("passives")[0].name)
+
                 self.passives.update({ability.name: ability})
                 # check ability has been added to dictionary
                 return ability.name in self.passives
+
+
+    # returns an ability or a list of abilities if there are multiple elites.
+    # will search both actives and passives unless a specific type is specified.
+    def get_elite(self, subtype = None):
+        # define list to be returned
+        _list = []
+
+        # only iterate through lists once subtype is set.
+        if subtype is not None:
+            if subtype == "actives":
+                for a in self.actives:
+                    if a.is_elite:
+                        _list.append(a)
+            else if subtype == "passives":
+                for a in self.passives:
+                    if a.is_elite:
+                        _list.append(a)
+
+        else:
+            for subtype in ("actives", "passives"):
+                _list += self.get_elite(subtype)
