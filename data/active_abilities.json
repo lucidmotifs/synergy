@@ -1,4 +1,5 @@
-{"helter_skelter": {
+{
+  "helter_skelter": {
     "name": "Helter Skelter",
     "is_elite": "false",
     "cooldown": "45",
@@ -21,7 +22,28 @@
     "range": "10",
     "provides": {
       "damage": {
+        "type": "direct",
         "mag": "207"
+      }
+    },
+    "escalation": {
+      "name": "Escalation",
+      "is_elite": "false",
+      "cooldown": "1",
+      "range": "5",
+      "provides": {
+        "damage": {
+          "type": "direct",
+          "mag": "207"
+        },
+        "benefit": {
+          "type": "threat",
+          "mag": 100
+        }
+      },
+      "cry_havoc": {
+        "name": "Cry Havoc",
+        "is_elite": 
       }
     }
   }

@@ -144,7 +144,7 @@ class Deck(AbilityList):
             else:
                 # if there is already an elite, and this ebility is an elite
                 # then remove the former before adding
-                if len(self.get_elite("actives") >= 1) && ability.is_elite:
+                if ability.is_elite and len(self.get_elite("actives")) >= 1:
                     # remove the old elite
                     self.actives.pop(self.get_elite("actives")[0].name)
 
@@ -158,7 +158,7 @@ class Deck(AbilityList):
             else:
                 # if there is already an elite, and this ebility is an elite
                 # then remove the former before adding
-                if len(self.get_elite("passvies") >= 1) && ability.is_elite:
+                if ability.is_elite and len(self.get_elite("passives")) >= 1:
                     # remove the old elite
                     self.passives.pop(self.get_elite("passives")[0].name)
 
@@ -176,14 +176,18 @@ class Deck(AbilityList):
         # only iterate through lists once subtype is set.
         if subtype is not None:
             if subtype == "actives":
-                for a in self.actives:
+                for k,a in self.actives.items():
+                    print(a)
                     if a.is_elite:
                         _list.append(a)
-            else if subtype == "passives":
-                for a in self.passives:
+            elif subtype == "passives":
+                for k,a in self.passives.items():
+                    print(a)
                     if a.is_elite:
                         _list.append(a)
 
         else:
             for subtype in ("actives", "passives"):
                 _list += self.get_elite(subtype)
+
+        return _list
