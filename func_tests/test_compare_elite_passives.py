@@ -53,16 +53,16 @@ def run(alist, player = Player()):
 
         # Create player object and add the elitePassive - this will replace
         # any other elite passive as there can only be one.
-        player.abilities().add(elitePassive)
+        player.deck().add(elitePassive)
 
         # Calculate theoretical base DPS
         # ...No procs or bleeds?
         base_dps = player.base_tdps()
         base_damage = player.base_tdps() * COMBAT_TIME
 
-        if player.stats:
-            crit_chance = player.stats.crit
-            crit_power = player.stats.crit_power
+        if player.stats() is not None:
+            crit_chance = player.stats().crit
+            crit_power = player.stats().crit_power
         else:
             crit_chance = CRIT_CHANCE
             crit_power = CRIT_POWER
@@ -71,7 +71,7 @@ def run(alist, player = Player()):
             if a == "Rapid Getaway":
                 crit_chance += 10
 
-        if player.signets and player.signets("laceration"):
+        if player.signets() and player.signets("laceration"):
             v = data.items( "signet",
                             "laceration",
                             player.signets("laceration").quality)
@@ -83,21 +83,30 @@ def run(alist, player = Player()):
 
         # the below assumes one hit = one sec. Not always true
         # @TODO adjust below to account for multi hit attacks (use furmulae)
-        total_crits = COMBAT_TIME * (crit_chance/100.0)
+        total_crits = COMBAT_TIME * (crit_chance/100)
         # @TODO replace below with damage formulae
         total_crit_damage = base_damage * ((crit_chance/100.0) * crit_power)
 
+        # @TODO all proc damage calculation should be done in a formulae
+        # subroutine:
+        # game.formulae.proc_damage_per_crit(player)
+        # would work something like -
+        # if (passive)ability.requires()["attack"]["critical"]
+        # and provide()["damage"]
+        # add to AbilityList
+        # check each item in list against player Deck, keep only
+        # those that exist
         proc_dmg_per_crit = 0
         if player.using_ability("One in the Chamber"):
             proc_dmg_per_crit = PROCS.ONE_IN_THE_CHAMBER
         if player.using_ability("Thunderstruck"):
-            proc_dmg_per_crit = PROCS.THUNDERSTRUCK
+            proc_dmg_per_crit = int(wheel.get("Thunderstruck").provides["damage"]["amount"])
 
-        proc_dmg_per_round = proc_dmg_per_crit * crits_per_round
+        total_proc_damage = proc_dmg_per_crit * int(total_crits)
 
-        print("Base Damage: %d \n" % base_dmg)
-        print("Crit Damage: {0} ({1}% Crit) \n".format(int(crit_dmg_per_round), base_crit))
-        print("Proc Damage: %d \n" % proc_dmg_per_round)
+        print("Base Damage: %d \n" % base_damage)
+        print("Crit Damage: {0} ({1}% Crit) \n".format(int(total_crit_damage), crit_chance))
+        print("Proc Damage: %d \n" % total_proc_damage)
 
         # end loop
 

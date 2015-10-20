@@ -8,6 +8,12 @@ MAX_PASSIVES = 7
 MAX_ACTIVE_AUXILLARY = 1
 MAX_PASSIVE_AUXILLARY = 1
 
+# struct for trying to decouple the active/passive behaviour somewhat
+class ABILITY_TYPE:
+    ACTIVE = 1
+    PASSIVE = 2
+    AXUILLARY = 3
+
 # Base class for defining an ability. Subclassed into active, passive and
 # auxillary
 class Ability:
@@ -78,8 +84,6 @@ class AbilityList():
         else:
             try:
                 for key, value in data.items():
-                    # debugging
-                    print (value)
                     if subtype == "actives":
                         a = ActiveAbility(value["name"])
                     elif subtype == "passives":
@@ -125,7 +129,7 @@ class Deck(AbilityList):
         # Adds an ability to the list, using either the Type of the object
         # or the specific subtype, if defined.
         if isinstance(ability, ActiveAbility) or subtype == 'active':
-            if len(self.actives >= MAX_ACTIVES):
+            if len(self.actives) >= MAX_ACTIVES:
                 #print("Active ability list full")
                 return False
             else:
@@ -133,7 +137,7 @@ class Deck(AbilityList):
                 # check ability has been added to dictionary
                 return ability.name in self.actives
         elif isinstance(ability, PassiveAbility) or subtype == 'passive':
-            if len(self.passives >= MAX_PASSIVES):
+            if len(self.passives) >= MAX_PASSIVES:
                 #print("Passive ability list full")
                 return False
             else:
