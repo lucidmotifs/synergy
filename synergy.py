@@ -95,6 +95,9 @@ def display_tests_menu():
             print("Invalid selection, please choose a valid menu item.")
             print()
 
+		if result == 1:
+			print("Test passed!\n")
+
 
 # boilerplate python to run main() when script is launched from console
 if __name__ == "__main__":
