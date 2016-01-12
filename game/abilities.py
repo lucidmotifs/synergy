@@ -35,7 +35,7 @@ class Ability:
         for k,v in raw.items():
             # Lazy object creation. Let's check if we HAVE the attribute
             # and if we do, then set it. If we don't, we want a debug message
-            # outputted saying that we got extra/erroneous data.
+            # outputted saying that we got extra/erroneous data. @TODO
             setattr(self, k, v)
 
     def __str__(self):
@@ -123,7 +123,7 @@ class AbilityList():
 
 class Deck(AbilityList):
 
-    # @TODO this entire piece of code needs to be re-though. Every time we do
+    # @TODO this entire piece of code needs to be re-thought. Every time we do
     # anything to abilities we are doing them for both actives and passive.
     # Most of the time the behaviour is exactly the same - the only real difference
     # between the abilities is a) the number we can have of each and b) the way
@@ -191,3 +191,13 @@ class Deck(AbilityList):
                 _list += self.get_elite(subtype)
 
         return _list
+
+
+class Wheel(AbilityList):
+
+	# The Wheel class is a special ability list that is designed to hold the
+	# entire list of abilities. We should also be building extra search and
+	# cache functionality into the Wheel object as its primary function is to be
+	# search through to find and match abilities to criteria. The base
+	# AbilityList may not need this, and a Deck certainly doesn't, because the
+	# amount of abilities is so small.
