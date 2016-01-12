@@ -1,50 +1,135 @@
 {
-  "helter_skelter": {
-    "name": "Helter Skelter",
-    "is_elite": "false",
-    "cooldown": "45",
-    "range": "10",
-    "provides": {
-      "damage": {
-        "type": "direct",
-        "amount": "600"
-      },
-      "state": {
-        "type": "impaired",
-        "duration": "3"
-      }
-    }
-  },
-  "bamboo_cutter": {
-    "name": "Bamboo Cutter",
-    "is_elite": "false",
-    "cooldown": "1",
-    "range": "10",
-    "provides": {
-      "damage": {
-        "type": "direct",
-        "mag": "207"
-      }
-    },
-    "escalation": {
-      "name": "Escalation",
-      "is_elite": "false",
-      "cooldown": "1",
-      "range": "5",
-      "provides": {
-        "damage": {
-          "type": "direct",
-          "mag": "207"
-        },
-        "benefit": {
-          "type": "threat",
-          "mag": 100
-        }
-      },
-      "cry_havoc": {
-        "name": "Cry Havoc",
-        "is_elite": 
-      }
-    }
-  }
+	"helter_skelter": {
+		"name": "Helter Skelter",
+		"is_elite": "false",
+		"cooldown": "45",
+		"range": "10",
+		"provides": {
+			"damage": {
+				"type": "direct",
+				"amount": "600"
+			},
+			"state": {
+				"type": "impaired",
+				"duration": "3"
+			}
+		}
+	},
+	"bamboo_cutter": {
+		"name": "Bamboo Cutter",
+		"is_elite": "false",
+		"cooldown": "1",
+		"range": 5,
+		"provides": {
+			"damage": {
+				"type": "area",
+				"mag": "33"
+			}
+		}
+	},
+	"escalation": {
+		"name": "Escalation",
+		"is_elite": "false",
+		"cooldown": "1",
+		"range": 5,
+		"target": 5,
+		"provides": {
+			"damage": {
+				"type": "area",
+				"mag": "33"
+			},
+			"benefit": {
+				"type": "threat",
+				"mag": 100
+			}
+		}
+	},
+	"cry_havoc": {
+		"name": "Cry Havoc",
+		"is_elite": "false"
+	},
+	"hand_of_change": {
+		"name": "Hand of Change",
+		"is_elite": "false",
+		"cooldown": 0,
+		"range": 3,
+		"provides": {
+			"damage": {
+				"type": "direct",
+				"mag": 49
+			},
+			"resource": {
+				"amount": 1,
+				"chance": 100
+			}
+		},
+		"requires": {}
+	},
+	"call_for_eris": {
+		"name": "Call for Eris",
+		"is_elite": "false",
+		"cooldown": 0,
+		"range": 0,
+		"provides": {
+			"damage": {
+				"type": "burst",
+				"hits": 5,
+				"mag": 24
+			},
+			"damage": {
+				"type": "direct",
+				"mag": 70
+			}
+		},
+		"requires": {
+			"resource": {
+				"amount": 5
+			}
+		}
+	},
+	"schism": {
+		"name": "Schism",
+		"is_elite": "false",
+		"cooldown": 0,
+		"range": 3,
+		"provides": {
+			"damage": {
+				"type": "direct",
+				"mag": 168
+			},
+			"damage": {
+				"type": "direct",
+				"mag": 40,
+				"condition": {
+					"health": {
+						"comparison": "less",
+						"level": 35
+					}
+				}
+			}
+		},
+		"requires": {
+			"resource": {
+				"amount": 5
+			}
+		}
+	},
+	"domino_effect": {
+		"name": "Domino Effect",
+		"is_elite": "true",
+		"cooldown": 45,
+		"range": 5,
+		"targets": 5,
+		"provides": {
+			"state": {
+				"type": "impaired",
+				"duration": 4
+			},
+			"damage": {
+				"type": "area",
+				"mag": 130
+			}
+		},
+		"requires": {}
+	}
 }

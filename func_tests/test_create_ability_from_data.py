@@ -8,7 +8,13 @@ from game.abilities import AbilityList
 # data.
 
 def run():
-    test_data = data.load()[0].values()  # active abilities
+    test_data = data.load()["actives"].values()  # active abilities
+
+	# fail test if test_data is empty
+	if test_data is None:
+		print ("Fail: No test data loaded")
+		return 0
+
     al = AbilityList()
 
     # loop through data creating an ability from each 'name'
