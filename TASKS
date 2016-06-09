@@ -18,7 +18,7 @@ such as has_ability and get_ability (which return an ability object)
 For example, only 7 actives and only one elite active/passive etc.
 - Define STATES, BENEFITS, DAMAGES etc. as sub-object of Affect so the data
 can be read from ability data loaded in by JSON
-- Change categorsation of abilities to use an Enum defined in the abilities
+- Change categorisation of abilities to use an Enum defined in the abilities
 file
 - Create a list of 'keys' for each ability type within an ability list. Which
 would allow us to store all abilities in a single list. Alternatively, see

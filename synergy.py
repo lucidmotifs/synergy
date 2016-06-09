@@ -5,6 +5,8 @@ import sys
 import game
 import game.abilities
 import game.affects
+
+# tests
 import func_tests
 from func_tests import *
 

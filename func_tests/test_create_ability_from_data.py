@@ -3,6 +3,7 @@ import data
 
 # import classes
 from game.abilities import AbilityList
+from game.abilities import ABILITY_TYPE
 
 # This test suite tests the ability to create Ability objects from raw
 # data.
@@ -19,16 +20,15 @@ def run():
 
 	# loop through data creating an ability from each 'name'
 	for ability in test_data:
-		#print(ability["name"])
-		if al.populate({'test_ability': ability}, "actives"):
+		if al.populate({'test_ability': ability}, ABILITY_TYPE.ACTIVE):
 			print("\nAdded: %s" % ability["name"])
 			print()
 			print("Print object: \n")
 			try:
-				print(al.actives[ability["name"]])
+				print(al.collections[ABILITY_TYPE.ACTIVE][ability["name"]])
 			except KeyError:
 				print("Invalid data, printing debug info...")
-				print(al.actives)
+				print(al.collections[ABILITY_TYPE.ACTIVE])
 			print()
 		else:
 			print("Failed!\n")

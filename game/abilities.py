@@ -17,12 +17,6 @@ class ABILITY_TYPE:
     # remember to update if you're updating this Type
     COUNT = 3
 
-# Maps the above enum to appropriate types
-ATYPE_MAP = [ Ability,
-              ActiveAbility,
-              PassiveAbility ]
-
-
 # Base class for defining an ability. Subclassed into active, passive and
 # auxillary
 class Ability:
@@ -65,19 +59,22 @@ class PassiveAbility(Ability):
     internal_cooldown = 1
 
 
+# Maps the above enum to appropriate types
+ATYPE_MAP = [ Ability,
+              ActiveAbility,
+              PassiveAbility ]
+
+
 class AbilityList():
 
-    actives = {}
-    passives = {}
-    auxillary = None
-
     # Where we store the ability collections
+    # @TODO rename?
     collections = []
 
-    def __init__():
+    def __init__(self):
         # Create collections for all the defined types
-        for i in xrange(ABILITY_TYPE.COUNT):
-            self.collections[i] = {}
+        for i in range(ABILITY_TYPE.COUNT):
+            self.collections.append({})
 
     # Fill the list with a pre-defined set of objects from a dictionary.
     # This is generally used to create the ability wheel from game data,
@@ -96,11 +93,17 @@ class AbilityList():
             except ValueError as e:
                 print("Invalid data passed, populate operation failed.")
                 print("Error: {0} on data supplied \n {1}".format(e, data))
+
+                return False
         else:
             try:
                 for key, ability in data.items():
                     # Built-in types only?;
-                    a = ATYPE_MAP[subtype](ability["name"])
+                    try:
+                        a = ATYPE_MAP[subtype](ability["name"])
+                    except TypeError as e:
+                        # @TODO use correct error outputting
+                        print("subtype index is %s" % subtype)
 
                     # Populate the Abilities properties from the JSON data.
                     a.create(ability)
@@ -113,7 +116,9 @@ class AbilityList():
                 print("Error: {0} \n".format(e))
                 print(data)
 
-        return len(self.actives) or len(self.passives)
+                return False
+
+        return True
 
 
     def add(self, ability, subtype = None):
@@ -125,7 +130,7 @@ class AbilityList():
 
         # Adds an ability to the list, using either the Type of the object
         # or the specific subtype, if defined.
-        for i in xrange(ABILITY_TYPE.COUNT):
+        for i in range(ABILITY_TYPE.COUNT):
             if isinstance(ability, ATYPE_MAP[i]):
                 self.collections[i].update({ability.name: ability})
 
@@ -133,12 +138,12 @@ class AbilityList():
     # looking up abilities. This is why it's so important to create smaller
     # lists for an avatar and potentially a better look-up table.
     def get(self, ability):
-        for i in xrange(ABILITY_TYPE.COUNT):
+        for i in range(ABILITY_TYPE.COUNT):
             if ability in self.collections[i]:
                 return self.actives[ability];
             else:
                 # @TODO use correct error reporting facility and exit.
-                print "Ability doesn't exists or is not loaded"
+                print("Ability doesn't exists or is not loaded")
 
 
 class Deck(AbilityList):
