@@ -11,13 +11,19 @@ the actual code.
 ** Abilities **
 
 - Create structured object that represents the in-game 7 active / 7 passive
-/ 1 active auxiliary / 1 passive auxiliary paradigm.
+/ 1 active auxiliary / 1 passive auxiliary paradigm. (Deck)
 - Allow outside observers to use query the AbilityList with simple requests
 such as has_ability and get_ability (which return an ability object)
 - AbilityList should parse loading/unloading of abilities to do sanity checks.
 For example, only 7 actives and only one elite active/passive etc.
 - Define STATES, BENEFITS, DAMAGES etc. as sub-object of Affect so the data
 can be read from ability data loaded in by JSON
+- Change categorsation of abilities to use an Enum defined in the abilities
+file
+- Create a list of 'keys' for each ability type within an ability list. Which
+would allow us to store all abilities in a single list. Alternatively, see
+how neater using an Enum to organise ability types is compared to the current
+method of using string.
 
 ** Player ** (Potentially 'Avatar')
 
@@ -34,3 +40,8 @@ other elite only one should return true).
 ** Testing **
 
 - Create simple test for JSON data loading
+
+
+** Wheel **
+
+- Build ability section 'key chains' to improve search time for abilities.
