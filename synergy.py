@@ -69,6 +69,7 @@ def display_tests_menu():
 		print("(1) Test Thunderstruck vs Rapid Getaway")
 		print("(2) Test JSON Data Import")
 		print("(3) Test Ability Object Creation")
+		print("(4) Test Wheel Object Creation")
 		print()
 		print("E(x)it the menu")
 		print()
@@ -89,6 +90,9 @@ def display_tests_menu():
 		elif _opt == "3":
 			# Execute a test case
 			result = test_create_ability_from_data.run()
+		elif _opt == "4":
+			# Execute a test case
+			result = test_wheel_creation.run()
 		elif _opt == 'x' or _opt == 'X':
 			print("Leaving menu...")
 			print()

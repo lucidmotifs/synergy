@@ -1,5 +1,7 @@
 {"thunderstruck": {
     "name": "Thunderstruck",
+    "tree": "Brutal Force",
+    "category": 2,
     "is_elite": "true",
 	  "provides": {
       "damage": {
@@ -16,6 +18,8 @@
   },
   "rapid_getaway": {
     "name": "Rapid Getaway",
+    "tree": "Dangerous",
+    "category": 2,
     "is_elite": "true",
 	  "provides": {
       "benefit": {

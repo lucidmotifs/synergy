@@ -14,5 +14,9 @@ def run():
 
     # Check collections
     print("Trees currently loaded into the wheel\n")
-    for tree_name in wheel.trees.key():
-        print(tree_name + "\n")
+    for tree_name in wheel.trees.keys():
+        print(tree_name)
+        print("Abilities:")
+
+        for ability in wheel.trees[tree_name].all().values():
+            print("\t" + str(ability))

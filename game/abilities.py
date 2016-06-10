@@ -146,6 +146,22 @@ class AbilityList():
                 print("Ability doesn't exists or is not loaded")
 
 
+    # Return all abilities in this list
+    def all(self):
+        combined = dict()
+
+        def merge(x, y):
+            '''Given two dicts, merge them into a new dict as a shallow copy.'''
+            z = x.copy()
+            z.update(y)
+            return z
+
+        for i in range(ABILITY_TYPE.COUNT):
+            combined = merge(self.collections[i], combined)
+
+        return combined
+
+
 class Deck(AbilityList):
 
     # @TODO this entire piece of code needs to be re-thought. Every time we do
@@ -243,20 +259,23 @@ class Wheel():
         # and storing game data
         #
         # DataStore.get("abilities") <<< once implemented
-        actives = data.load()["actives"].values()
-        passives = data.load()["passives"].values()
+        actives = data.load()["actives"]
+        passives = data.load()["passives"]
 
         # combine the dictionaries
-        ability_data = {**actives, **passive}
+        ability_data = {**actives, **passives}
 
         # Comb the data and create smaller collections for matching 'tree' name
         for k,a in ability_data.items():
             if not a["tree"] in self.trees.keys():
                 # create a new tree
-                self.trees[a["tree"]] = AbilityList()
+                self.trees.update({a["tree"]: AbilityList())
 
-            # Add ability to the tree.
-            ability = ATYPE_MAP[a["subtype"](a["name"])
-            ability.create(a)
+            try:
+                # Add ability to the tree.
+                ability = ATYPE_MAP[a["category"]](a["name"])
+                ability.create(a)
+            except KeyError as e:
+                print(a["name"])
 
             self.trees[a["tree"]].add(ability)

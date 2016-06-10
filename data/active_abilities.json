@@ -1,6 +1,22 @@
 {
+	"armor_fati": {
+		"name": "Armor Fati",
+		"category": 1,
+		"tree": "The Value of x",
+		"is_elite": "False",
+		"cooldown": 60,
+		"range": "0",
+		"provides": {
+			"benefit": {
+				"type": "damage",
+				"mag": 10
+			}
+		}
+	},
 	"helter_skelter": {
 		"name": "Helter Skelter",
+		"category": 1,
+		"tree": "The Value of x",
 		"is_elite": "false",
 		"cooldown": "45",
 		"range": "10",
@@ -11,24 +27,28 @@
 			},
 			"state": {
 				"type": "impaired",
-				"duration": "3"
+				"duration": 3
 			}
 		}
 	},
 	"bamboo_cutter": {
 		"name": "Bamboo Cutter",
-		"is_elite": "false",
-		"cooldown": "1",
+		"category": 1,
+		"tree": "Crossing River's Edge",
+		"is_elite": "False",
+		"cooldown": 1,
 		"range": 5,
 		"provides": {
 			"damage": {
 				"type": "area",
-				"mag": "33"
+				"mag": 33
 			}
 		}
 	},
 	"escalation": {
 		"name": "Escalation",
+		"category": 1,
+		"tree": "Chance",
 		"is_elite": "false",
 		"cooldown": "1",
 		"range": 5,
@@ -36,7 +56,7 @@
 		"provides": {
 			"damage": {
 				"type": "area",
-				"mag": "33"
+				"mag": 33
 			},
 			"benefit": {
 				"type": "threat",
@@ -46,10 +66,14 @@
 	},
 	"cry_havoc": {
 		"name": "Cry Havoc",
+		"tree": "Collapse",
+		"category": 1,
 		"is_elite": "false"
 	},
 	"hand_of_change": {
 		"name": "Hand of Change",
+		"category": 1,
+		"tree": "Theory",
 		"is_elite": "false",
 		"cooldown": 0,
 		"range": 3,
@@ -67,6 +91,8 @@
 	},
 	"call_for_eris": {
 		"name": "Call for Eris",
+		"category": 1,
+		"tree": "Theory",
 		"is_elite": "false",
 		"cooldown": 0,
 		"range": 0,
@@ -89,6 +115,8 @@
 	},
 	"schism": {
 		"name": "Schism",
+		"category": 1,
+		"tree": "Theory",
 		"is_elite": "false",
 		"cooldown": 0,
 		"range": 3,
@@ -116,6 +144,8 @@
 	},
 	"domino_effect": {
 		"name": "Domino Effect",
+		"category": 1,
+		"tree": "Theory",
 		"is_elite": "true",
 		"cooldown": 45,
 		"range": 5,
