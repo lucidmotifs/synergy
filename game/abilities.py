@@ -140,7 +140,7 @@ class AbilityList():
     def get(self, ability):
         for i in range(ABILITY_TYPE.COUNT):
             if ability in self.collections[i]:
-                return self.actives[ability];
+                return self.collections[i][ability];
             else:
                 # @TODO use correct error reporting facility and exit.
                 print("Ability doesn't exists or is not loaded")
@@ -221,8 +221,16 @@ class Deck(AbilityList):
 
         return _list
 
+import data
 
-class Wheel(AbilityList):
+class Wheel():
+
+    # The wheel is organised using the hierarchy: weapon > level (inner/outer)
+    # and tree.
+    # The Wheel object will hold several AbilityList objects, one for each tree
+    # (the trees are defind by game data? or is that a property of the wheel?)
+    trees = dict()
+
 
 	# The Wheel class is a special ability list that is designed to hold the
 	# entire list of abilities. We should also be building extra search and
@@ -230,5 +238,25 @@ class Wheel(AbilityList):
 	# search through to find and match abilities to criteria. The base
 	# AbilityList may not need this, and a Deck certainly doesn't, because the
 	# amount of abilities is so small.
-    def __init__():
-        pass
+    def __init__(self):
+        # Wheel object will be tightly coupled with the object that is loading
+        # and storing game data
+        #
+        # DataStore.get("abilities") <<< once implemented
+        actives = data.load()["actives"].values()
+        passives = data.load()["passives"].values()
+
+        # combine the dictionaries
+        ability_data = {**actives, **passive}
+
+        # Comb the data and create smaller collections for matching 'tree' name
+        for k,a in ability_data.items():
+            if not a["tree"] in self.trees.keys():
+                # create a new tree
+                self.trees[a["tree"]] = AbilityList()
+
+            # Add ability to the tree.
+            ability = ATYPE_MAP[a["subtype"](a["name"])
+            ability.create(a)
+
+            self.trees[a["tree"]].add(ability)

@@ -39,9 +39,24 @@ other elite only one should return true).
 
 ** Testing **
 
-- Create simple test for JSON data loading
+** Deck **
+- Address the TODO above Deck.add to simplify how abilities are added.
+- Potentially abstract the elite pop code into AbilityList so it can be called
+from Deck as well as for Tree inside Wheel.
 
 
 ** Wheel **
 
 - Build ability section 'key chains' to improve search time for abilities.
+- Create method to extract the 'tree' property of a skill, and create a new
+ability list if one doesn't exist.
+- Take a data dump of every available ability (excluding auxillary) and then
+go through each ability add it to an ability list (encapsulated by 'tree')
+- Create weapons data. Include an ID for each weapon that can be linked to from
+the skills. Include auxillaries.
+
+** DataStore **
+
+We need a singleton object that is in charge of loading and maybe even
+storing data. This alows us to use json or SQL (in future) and abstracts the
+loading of game data.
