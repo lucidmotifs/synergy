@@ -65,7 +65,7 @@ ATYPE_MAP = [ Ability,
               PassiveAbility ]
 
 
-class AbilityList():
+class AbilityList:
 
     # Where we store the ability collections
     # @TODO rename?
@@ -227,7 +227,6 @@ class Deck(AbilityList):
         if subtype is not None:
             collection = self.collections[subtype]
             for k,a in collection.items():
-                print(a)
                 if a.is_elite:
                     _list.append(a)
 
@@ -269,13 +268,11 @@ class Wheel():
         for k,a in ability_data.items():
             if not a["tree"] in self.trees.keys():
                 # create a new tree
-                self.trees.update({a["tree"]: AbilityList())
+                self.trees.update({a["tree"]: AbilityList()})
 
-            try:
-                # Add ability to the tree.
-                ability = ATYPE_MAP[a["category"]](a["name"])
-                ability.create(a)
-            except KeyError as e:
-                print(a["name"])
+            # Add ability to the tree.
+            ability = ATYPE_MAP[a["category"]](a["name"])
+            ability.create(a)
 
             self.trees[a["tree"]].add(ability)
+            print("adding %s to tree %s" % (ability.name, a["tree"]))
