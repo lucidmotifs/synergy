@@ -19,7 +19,7 @@ class ABILITY_TYPE:
 
 # Base class for defining an ability. Subclassed into active, passive and
 # auxillary
-class Ability:
+class Ability():
 
     name = ""
 
@@ -65,13 +65,12 @@ ATYPE_MAP = [ Ability,
               PassiveAbility ]
 
 
-class AbilityList:
-
-    # Where we store the ability collections
-    # @TODO rename?
-    collections = []
+class AbilityList():
 
     def __init__(self):
+        # Store the ability collections
+        self.collections = []
+
         # Create collections for all the defined types
         for i in range(ABILITY_TYPE.COUNT):
             self.collections.append({})
@@ -143,7 +142,7 @@ class AbilityList:
                 return self.collections[i][ability];
             else:
                 # @TODO use correct error reporting facility and exit.
-                print("Ability doesn't exists or is not loaded")
+                print("Ability doesn't exist or is not loaded")
 
 
     # Return all abilities in this list
@@ -157,6 +156,7 @@ class AbilityList:
             return z
 
         for i in range(ABILITY_TYPE.COUNT):
+
             combined = merge(self.collections[i], combined)
 
         return combined
@@ -237,16 +237,9 @@ class Deck(AbilityList):
         return _list
 
 import data
+import game
 
 class Wheel():
-
-    # The wheel is organised using the hierarchy: weapon > level (inner/outer)
-    # and tree.
-    # The Wheel object will hold several AbilityList objects, one for each tree
-    # (the trees are defind by game data? or is that a property of the wheel?)
-    trees = dict()
-
-
 	# The Wheel class is a special ability list that is designed to hold the
 	# entire list of abilities. We should also be building extra search and
 	# cache functionality into the Wheel object as its primary function is to be
@@ -255,11 +248,26 @@ class Wheel():
 	# amount of abilities is so small.
     def __init__(self):
         # Wheel object will be tightly coupled with the object that is loading
-        # and storing game data
-        #
+        # and storing game data.
+
+        # The wheel is organised using the hierarchy: weapon > level (inner/outer)
+        # and tree.
+        # The Wheel object will hold several AbilityList objects, one for each tree
+        # (the trees are defind by game data? or is that a property of the wheel?)
+        self.trees = dict()
+
+        # Each tree belongs to a weapon. If we take the trees and added them to
+        # a weapon, then we can quickly cut down the number of trees we need to
+        # search for a weapon.
+        self.weapons = dict()
+
+        for i in range(game.WEAPONS.COUNT):
+            self.weapons.update({i: set()})
+
         # DataStore.get("abilities") <<< once implemented
-        actives = data.load()["actives"]
-        passives = data.load()["passives"]
+        raw_data = data.load()
+        actives = raw_data["actives"]
+        passives = raw_data["passives"]
 
         # combine the dictionaries
         ability_data = {**actives, **passives}
@@ -270,9 +278,11 @@ class Wheel():
                 # create a new tree
                 self.trees.update({a["tree"]: AbilityList()})
 
+                # attach the tree to a weapon's set.
+                self.weapons[a["weapon"]].add(a["tree"])
+
             # Add ability to the tree.
             ability = ATYPE_MAP[a["category"]](a["name"])
             ability.create(a)
 
             self.trees[a["tree"]].add(ability)
-            print("adding %s to tree %s" % (ability.name, a["tree"]))

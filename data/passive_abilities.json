@@ -1,5 +1,6 @@
 {"thunderstruck": {
     "name": "Thunderstruck",
+    "weapon": 1,
     "tree": "Brutal Force",
     "category": 2,
     "is_elite": "true",
@@ -18,6 +19,7 @@
   },
   "rapid_getaway": {
     "name": "Rapid Getaway",
+    "weapon": 7,
     "tree": "Dangerous",
     "category": 2,
     "is_elite": "true",
