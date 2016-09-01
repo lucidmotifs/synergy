@@ -1,2 +1,4 @@
 # synergy
-TSW Helper Application
+TSW Helper Application - No defunct. Code lost, something similar was created anyway.
+
+Was fun! Bye.
